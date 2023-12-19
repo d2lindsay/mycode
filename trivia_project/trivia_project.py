@@ -15,11 +15,13 @@ def main():
     print("Welcome! I'm going to give you some trivia questions. Ready?")
     print("How many questions do you want?") 
     amount = input(">>> ")
+
     print("How difficult do you want the questios? easy, medium, hard")
     difficulty = input(">>> ")
     
-    if difficulty not in ("easy", "medium", "hard"):
+    while difficulty not in ("easy", "medium", "hard"):
         print("Difficulty not found. Must be: easy, medium or hard")
+        difficulty = input(">>> ")
 
     trivia = requests.get(base_url + f"amount={amount}&difficulty={difficulty}")
     trivia = trivia.json()
@@ -40,7 +42,7 @@ def main():
         x = 1
         for a in answers:
             print(f"{x}) {a}")
-            x = x + 1
+            x += 1
         
         print("Enter your guess (1, 2, 3, or 4)")
         guess = input(">>> ")
@@ -53,9 +55,9 @@ def main():
         else:
             print("Sorry, that is incorrect.\n")
 
-           
+        input()   
 
-        num = num + 1
+        num += 1
                 
 
 
