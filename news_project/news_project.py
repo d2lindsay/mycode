@@ -46,7 +46,10 @@ def main():
             print(f"\n{news_dict[article_select]['title']}")
             print(f"Source: {news_dict[article_select]['source']['name']}")
             print(f"Author: {news_dict[article_select]['author']}")
-            print(f"Preview:\n{news_dict[article_select]['description']}")
+            if news_dict[article_select]['description'] == None:
+                print("\nNo article preview.")
+            else:
+                print(f"\nPreview:\n{news_dict[article_select]['description']}")
             print(f"\n{news_dict[article_select]['url']}")
         else:
             break
